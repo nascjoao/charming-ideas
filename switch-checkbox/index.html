@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Switch Checkbox</title>
+</head>
+<body>
+  <input type="checkbox" role="switch">
+
+  <style>
+    input[role="switch"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid white;
+    border-radius: 99px;
+    background: #b1b1b1;
+    width: 2.5rem;
+    height: 1.4rem;
+    position: relative;
+    transition: background 300ms;
+    cursor: pointer;
+    font-size: 0.8125rem;
+  }
+
+  input[role="switch"]::after {
+    content: '';
+    position: absolute;
+    top: calc(0rem + 0.0625rem);
+    left: calc(0rem + 0.0625rem);
+    background: linear-gradient(-60deg, #aaa 10%, white 51%);
+    box-shadow: 0.1875rem 0 0.625rem #00000080;
+    width: 50%;
+    height: calc(100% - 0.125rem);
+    border-radius: 50%;
+    transition: 200ms;
+  }
+
+  input[role="switch"]:checked {
+    background: #1d9110;
+  }
+
+  input[role="switch"]:checked::after {
+    transform: translateX(calc(100% - 0.125rem));
+  }
+
+  input[role="switch"]::before {
+    content: '✗';
+    position: absolute;
+    top: 50%;
+    right: 0.3125rem;
+    color: #606060;
+    transform: translateY(-50%);
+  }
+
+  input[role="switch"]:checked::before {
+    content: '✓';
+    left: 0.3125rem;
+    color: white;
+  }
+  </style>
+</body>
+</html>
