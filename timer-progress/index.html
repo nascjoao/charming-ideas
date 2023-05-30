@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timer Progress</title>
+</head>
+<body>
+    <div style="--progress: 35" role="progressbar" aria-valuenow="35"></div>
+
+    <style>
+        div[role="progressbar"] {
+            width: 18.75rem;
+            height: 18.75rem;
+            background: conic-gradient(brown calc(var(--progress) * 1% - 50%), #ed585f calc(var(--progress) * 1%), pink calc(var(--progress) * 1%));
+            border-radius: 50%;
+            position: relative;
+        }
+
+        div[role="progressbar"]::before {
+            width: 0.625rem;
+            height: 110%;
+            border-radius: 99px;
+            content: '';
+            position: absolute;
+            background: linear-gradient(red 10%, brown 50%, transparent 50%);
+            z-index: 2;
+            top: -5%;
+            left: 50%;
+            transform: translateX(-0.3125rem) rotate(calc(var(--progress) * 3.6deg));
+        }
+
+        div[role="progressbar"]::after {
+            width: 2.5rem;
+            height: 2.5rem;
+            content: '';
+            position: absolute;
+            background: white;
+            box-shadow: 0 0.5625rem 0.3125rem 0.3125rem #ed585f90, 0 0 0.3125rem 0.3125rem #00000020, 0 0 0 0.625rem white, 0 0.9375rem 0.9375rem #ed585f80;
+            z-index: 2;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+    </style>
+</body>
+</html>
